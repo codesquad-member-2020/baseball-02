@@ -44,7 +44,7 @@ CREATE TABLE  baseball.batter (
       id INT NOT NULL AUTO_INCREMENT,
       name VARCHAR(45) NOT NULL,
       batting_number INT NOT NULL,
-      hit_rate FLOAT NOT NULL,
+      hit_rate INT NOT NULL,
       team_id INT NOT NULL,
       PRIMARY KEY (id),
       INDEX fk_batter_team1_idx (team_id ASC),
