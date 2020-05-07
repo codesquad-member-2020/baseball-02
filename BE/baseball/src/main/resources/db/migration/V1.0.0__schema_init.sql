@@ -10,7 +10,7 @@ CREATE TABLE  baseball.game (
       play_date DATETIME NOT NULL,
       home INT NOT NULL,
       away INT NOT NULL,
-      PRIMARY KEY (id, date),
+      PRIMARY KEY (id),
       INDEX fk_game_team_idx (home ASC),
       INDEX fk_game_team1_idx (away ASC),
       CONSTRAINT fk_game_team
@@ -62,18 +62,17 @@ CREATE TABLE  baseball.player_record (
       hit VARCHAR(45) NOT NULL,
       batter_id INT NOT NULL,
       game_id INT NOT NULL,
-      game_date DATETIME NOT NULL,
       PRIMARY KEY (id),
       INDEX fk_player_record_batter1_idx (batter_id ASC),
-      INDEX fk_player_record_game1_idx (game_id ASC, game_date ASC),
+      INDEX fk_player_record_game1_idx (game_id ASC),
       CONSTRAINT fk_player_record_batter1
         FOREIGN KEY (batter_id)
         REFERENCES baseball.batter (id)
         ON DELETE NO ACTION
         ON UPDATE NO ACTION,
       CONSTRAINT fk_player_record_game1
-        FOREIGN KEY (game_id , game_date)
-        REFERENCES baseball.game (id , date)
+        FOREIGN KEY (game_id)
+        REFERENCES baseball.game (id)
         ON DELETE NO ACTION
         ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -88,12 +87,11 @@ CREATE TABLE  baseball.inning (
       out_count INT NOT NULL,
       score INT NOT NULL,
       game_id INT NOT NULL,
-      game_date DATETIME NOT NULL,
       PRIMARY KEY (id),
-      INDEX fk_inning_game1_idx (game_id ASC, game_date ASC),
+      INDEX fk_inning_game1_idx (game_id ASC),
       CONSTRAINT fk_inning_game1
-        FOREIGN KEY (game_id , game_date)
-        REFERENCES baseball.game (id , date)
+        FOREIGN KEY (game_id)
+        REFERENCES baseball.game (id)
         ON DELETE NO ACTION
         ON UPDATE NO ACTION)
 ENGINE = InnoDB;
