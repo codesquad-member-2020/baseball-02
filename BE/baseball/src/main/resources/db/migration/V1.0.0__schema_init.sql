@@ -7,7 +7,7 @@ ENGINE = InnoDB;
 
 CREATE TABLE  baseball.game (
       id INT NOT NULL AUTO_INCREMENT,
-      date DATETIME NOT NULL,
+      play_date DATETIME NOT NULL,
       home INT NOT NULL,
       away INT NOT NULL,
       PRIMARY KEY (id, date),
@@ -43,6 +43,8 @@ ENGINE = InnoDB;
 CREATE TABLE  baseball.batter (
       id INT NOT NULL AUTO_INCREMENT,
       name VARCHAR(45) NOT NULL,
+      batting_number INT NOT NULL,
+      hit_rate FLOAT NOT NULL,
       team_id INT NOT NULL,
       PRIMARY KEY (id),
       INDEX fk_batter_team1_idx (team_id ASC),
@@ -54,7 +56,7 @@ CREATE TABLE  baseball.batter (
 ENGINE = InnoDB;
 
 
-CREATE TABLE  baseball.palyer_record (
+CREATE TABLE  baseball.player_record (
       id INT NOT NULL AUTO_INCREMENT,
       at_bat VARCHAR(45) NOT NULL,
       hit VARCHAR(45) NOT NULL,
@@ -62,14 +64,14 @@ CREATE TABLE  baseball.palyer_record (
       game_id INT NOT NULL,
       game_date DATETIME NOT NULL,
       PRIMARY KEY (id),
-      INDEX fk_palyer_record_batter1_idx (batter_id ASC),
-      INDEX fk_palyer_record_game1_idx (game_id ASC, game_date ASC),
-      CONSTRAINT fk_palyer_record_batter1
+      INDEX fk_player_record_batter1_idx (batter_id ASC),
+      INDEX fk_player_record_game1_idx (game_id ASC, game_date ASC),
+      CONSTRAINT fk_player_record_batter1
         FOREIGN KEY (batter_id)
         REFERENCES baseball.batter (id)
         ON DELETE NO ACTION
         ON UPDATE NO ACTION,
-      CONSTRAINT fk_palyer_record_game1
+      CONSTRAINT fk_player_record_game1
         FOREIGN KEY (game_id , game_date)
         REFERENCES baseball.game (id , date)
         ON DELETE NO ACTION
@@ -79,8 +81,8 @@ ENGINE = InnoDB;
 
 CREATE TABLE  baseball.inning (
       id INT NOT NULL,
-      number VARCHAR(45) NOT NULL,
-      halves ENUM('FIRST', 'SECOND') NOT NULL,
+      inning_number VARCHAR(45) NOT NULL,
+      is_first TINYINT NOT NULL,
       strike_count INT NOT NULL,
       ball_count INT NOT NULL,
       out_count INT NOT NULL,
