@@ -1,8 +1,10 @@
 import React from "react";
-import { StyledDiv } from "Styles/App";
+import Router from "Components/Router.jsx";
 
-const App = () => {
-	return <StyledDiv>Hello React!</StyledDiv>;
-};
+const App = () => (
+	<>
+		<Router />
+	</>
+);
 
 export default App;

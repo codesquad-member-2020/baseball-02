@@ -5,6 +5,7 @@ module.exports = {
 	resolve: {
 		alias: {
 			Components: path.resolve(__dirname, "./src/components/"),
+			Routes: path.resolve(__dirname, "./src/routes/"),
 			Styles: path.resolve(__dirname, "./src/styles/"),
 		},
 	},
