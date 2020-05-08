@@ -5,7 +5,7 @@ import { PATH } from "Utils/const";
 const Login = () => {
 	return (
 		<>
-			<h1>Login</h1>
+			<h1>온라인 야구게임</h1>
 			<button>
 				<Link to={PATH.TEAM_CHOICE}>LOG IN</Link>
 			</button>
