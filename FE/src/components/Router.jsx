@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, Redirect, Switch } from "react-router-dom";
 import Login from "Routes/Login.jsx";
 import TeamChoice from "Routes/TeamChoice.jsx";
-import Game from "Routes/Game.jsx";
+import Match from "Routes/Match.jsx";
 import PlayerRecord from "Routes/PlayerRecord.jsx";
 import { PATH } from "Utils/const";
 
@@ -11,7 +11,7 @@ export default () => (
 		<Switch>
 			<Route path={PATH.LOGIN} exact component={Login} />
 			<Route path={PATH.TEAM_CHOICE} component={TeamChoice} />
-			<Route path={PATH.GAME} component={Game} />
+			<Route path={PATH.MATCH} component={Match} />
 			<Route path={PATH.PLAYER_RECORD} component={PlayerRecord} />
 			<Redirect from="*" to="/" />
 		</Switch>

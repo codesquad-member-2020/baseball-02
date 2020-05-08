@@ -11,7 +11,7 @@ const TeamChoice = () => {
 	};
 
 	return redirect ? (
-		<Redirect to={PATH.GAME} />
+		<Redirect to={PATH.MATCH} />
 	) : (
 		<>
 			<h1>TeamChoice</h1>
