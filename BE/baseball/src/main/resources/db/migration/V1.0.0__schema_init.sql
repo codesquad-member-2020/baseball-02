@@ -1,6 +1,7 @@
 CREATE TABLE  baseball.team (
       id INT NOT NULL AUTO_INCREMENT,
       name VARCHAR(45) NOT NULL,
+      last_batter INT NOT NULL DEFAULT 1,
       PRIMARY KEY (id))
 ENGINE = InnoDB;
 
