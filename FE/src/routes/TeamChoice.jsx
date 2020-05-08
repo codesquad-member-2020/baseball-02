@@ -1,7 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
+import { Redirect } from "react-router-dom";
+import { PATH } from "Utils/const";
 
 const TeamChoice = () => {
-	return <h1>TeamChoice</h1>;
+	const [redirect, setRedirect] = useState(false);
+
+	const redirectToGamePage = () => {
+		// start polling
+		setRedirect(true);
+	};
+
+	return redirect ? (
+		<Redirect to={PATH.GAME} />
+	) : (
+		<>
+			<h1>TeamChoice</h1>
+			<button onClick={redirectToGamePage}>PLAY</button>
+		</>
+	);
 };
 
 export default TeamChoice;
