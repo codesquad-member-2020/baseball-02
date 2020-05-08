@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { PATH } from "Utils/const";
 
-const Login = () => {
+const Home = () => {
 	return (
 		<>
 			<h1>온라인 야구게임</h1>
@@ -13,4 +13,4 @@ const Login = () => {
 	);
 };
 
-export default Login;
+export default Home;
