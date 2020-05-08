@@ -17,6 +17,8 @@ const GlobalStyles = createGlobalStyle`
     font-family: 'NeoDunggeunmo';
     color: #37F734;
     background: #2D2D2D;
+    margin: 30px;
+    border: 3px solid #37F734;
   }
   button {
     background: none;
