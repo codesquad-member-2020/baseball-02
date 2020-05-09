@@ -17,11 +17,14 @@ const GlobalStyles = createGlobalStyle`
     font-family: 'NeoDunggeunmo';
     color: #37F734;
     background: #2D2D2D;
-    margin: 30px;
+    margin: auto;
+    margin-top: 70px;
     border: 3px solid #37F734;
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 768px;
+    height: 600px;
   }
   button {
     background: none;
