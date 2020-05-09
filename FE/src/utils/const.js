@@ -4,3 +4,5 @@ export const PATH = {
 	MATCH: "/match",
 	PLAYER_RECORD: "/player-record",
 };
+
+export const TEAMS = ["Captain", "Marvel", "Twins", "Tigers", "Rockets", "Dodgers"];

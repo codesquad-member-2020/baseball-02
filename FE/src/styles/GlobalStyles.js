@@ -19,6 +19,9 @@ const GlobalStyles = createGlobalStyle`
     background: #2D2D2D;
     margin: 30px;
     border: 3px solid #37F734;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   button {
     background: none;
@@ -27,10 +30,21 @@ const GlobalStyles = createGlobalStyle`
     border: none;
     cursor: pointer;
     outline: inherit;
-}
+  }
   a, a:visited, a:hover, a:active {
     text-decoration: none;
     color: inherit;
+  }
+  ::-webkit-scrollbar {
+    width: 15px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #2D2D2D;
+    border-left: 3px solid #37F734;
+    border-right: 1px solid #37F734;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #37F734;
   }
 `;
 
