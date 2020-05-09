@@ -15,8 +15,8 @@ const Title = styled.h1`
 
 const TeamContainer = styled.div`
 	width: 400px;
-	min-height: 400px;
-	max-height: 400px;
+	min-height: 300px;
+	max-height: 300px;
 	overflow-y: auto;
 	display: flex;
 	flex-direction: column;
@@ -36,7 +36,7 @@ const Team = styled.div`
 	align-items: center;
 	cursor: pointer;
 	:not(:last-child) {
-		margin-bottom: 20px;
+		margin-bottom: 15px;
 	}
 `;
 
