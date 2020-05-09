@@ -1,15 +1,30 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { PATH } from "Utils/const";
+import ScoreBoard from "Components/ScoreBoard.jsx";
+import CurrentPlayers from "Components/CurrentPlayers.jsx";
+import TotalScore from "Components/TotalScore.jsx";
+import Stadium from "Components/Stadium.jsx";
+import Record from "Components/Record.jsx";
+import { GridContainer, Box } from "Styles/Match";
 
 const Match = () => {
 	return (
-		<>
-			<h1>Match</h1>
-			<button>
-				<Link to={PATH.PLAYER_RECORD}>Player Record ></Link>
-			</button>
-		</>
+		<div>
+			<GridContainer>
+				<Box>
+					<ScoreBoard />
+				</Box>
+				<Box>
+					<CurrentPlayers />
+				</Box>
+				<Box>
+					<TotalScore />
+					<Stadium />
+				</Box>
+				<Box>
+					<Record />
+				</Box>
+			</GridContainer>
+		</div>
 	);
 };
 
