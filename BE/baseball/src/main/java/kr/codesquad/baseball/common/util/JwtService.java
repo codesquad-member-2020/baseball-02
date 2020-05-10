@@ -45,7 +45,7 @@ public class JwtService {
                    .compact();
     }
 
-    public Map<String, Object> getDataFromJws(String jws, String jwtKey) {
+    public Map<String, Object> getDataFromJws(String jwtKey, String jws) {
         Jws<Claims> claims;
         try {
             claims = Jwts.parserBuilder()
