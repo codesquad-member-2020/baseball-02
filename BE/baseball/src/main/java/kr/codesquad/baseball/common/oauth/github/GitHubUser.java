@@ -11,8 +11,9 @@ public class GitHubUser {
     private String login;
     private String name;
     private String email;
+    private String token;
 
     public User transformToUser() {
-        return new User(this.login, this.name, this.email);
+        return User.builder().userId(login).nickname(name).email(email).githubToken(token).build();
     }
 }
