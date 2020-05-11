@@ -4,9 +4,9 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.ToString;
 
-@RequiredArgsConstructor
-@ToString
 @Getter
+@ToString
+@RequiredArgsConstructor
 public class User {
 
     private final String id;

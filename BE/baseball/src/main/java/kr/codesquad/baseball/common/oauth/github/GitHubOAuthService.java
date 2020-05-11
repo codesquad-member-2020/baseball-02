@@ -12,8 +12,8 @@ import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-@Service
 @Slf4j
+@Service
 public class GitHubOAuthService {
 
     private static final String GITHUB_USER_API_URL = "https://api.github.com/user";

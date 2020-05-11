@@ -3,8 +3,7 @@ package kr.codesquad.baseball.common.util;
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.security.Keys;
 import kr.codesquad.baseball.common.error.exception.LoginRequiredException;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.security.Key;
@@ -12,10 +11,10 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+@Slf4j
 @Service
 public class JwtService {
 
-    private static final Logger log = LoggerFactory.getLogger(JwtService.class);
     private static final Key key = Keys.secretKeyFor(SignatureAlgorithm.HS256);
 
     public String createJws(String jwtKey, Object data) {
