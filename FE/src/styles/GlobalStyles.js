@@ -16,7 +16,7 @@ const GlobalStyles = createGlobalStyle`
   body {
     font-family: 'NeoDunggeunmo';
     color: #37F734;
-    background: #2D2D2D;
+    background: #1d1f20;
     margin: auto;
     margin-top: 70px;
     border: 3px solid #37F734;
