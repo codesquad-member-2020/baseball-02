@@ -32,7 +32,7 @@ public class GitHubOAuthService {
     }
 
     public User insertUserInfo(String token) {
-        return getGitHubUserInfoToToken(token).transformToUser();
+        return User.of(getGitHubUserInfoToToken(token));
     }
 
     public GitHubUser getGitHubUserInfoToToken(String token) {
