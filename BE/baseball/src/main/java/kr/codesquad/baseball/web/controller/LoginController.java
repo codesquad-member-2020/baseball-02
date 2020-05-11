@@ -32,7 +32,7 @@ public class LoginController {
         if (jwt != null) {
             log.debug("jwt 토큰 값: {}", jwt);
             log.debug("jwt에 저장된 값: {}", jwtService.getDataFromJws("user", jwt));
-            return new ResponseEntity<>("ok", HttpStatus.OK);
+            return ResponseEntity.ok("ok");
         }
 
         HttpHeaders headers = new HttpHeaders();
