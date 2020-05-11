@@ -7,9 +7,7 @@ import lombok.Getter;
 public class Team {
 
     private Integer id;
-
     private String name;
-
     private Integer lastBatter;
 
     @Builder

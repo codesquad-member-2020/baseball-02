@@ -48,11 +48,10 @@ class TeamControllerTest {
         // when && then
         mockMvc.perform(get("/teams"))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("%", hasSize(teams.size())))
-                .andExpect(jsonPath("%[0].", hasSize(teams.size())))
-                .andExpect(jsonPath("%[0].id", hasSize(teams.get(1).getId())))
-                .andExpect(jsonPath("%[2].name", is(teams.get(2).getName())))
-                .andExpect(jsonPath("%[3].name", is(teams.get(3).getName())));
+                .andExpect(jsonPath("$", hasSize(teams.size())))
+                .andExpect(jsonPath("$[0].id", is(teams.get(0).getId())))
+                .andExpect(jsonPath("$[2].name", is(teams.get(2).getName())))
+                .andExpect(jsonPath("$[3].name", is(teams.get(3).getName())));
     }
 
 }
