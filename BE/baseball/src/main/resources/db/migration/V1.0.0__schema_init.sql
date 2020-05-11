@@ -117,3 +117,15 @@ CREATE TABLE  baseball.inning_record (
         ON DELETE NO ACTION
         ON UPDATE NO ACTION)
 ENGINE = InnoDB;
+
+
+CREATE TABLE baseball.user
+(
+    id           INT AUTO_INCREMENT,
+    user_id      VARCHAR(25)  NOT NULL UNIQUE,
+    nickname     VARCHAR(25)  NOT NULL,
+    email        VARCHAR(255) NULL,
+    github_token VARCHAR(255) NOT NULL,
+    CONSTRAINT user_pk
+        PRIMARY KEY (id)
+);
