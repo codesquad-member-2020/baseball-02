@@ -1,8 +1,7 @@
 package kr.codesquad.baseball.common.error;
 
 import kr.codesquad.baseball.common.error.exception.BusinessException;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.HttpRequestMethodNotSupportedException;
@@ -10,9 +9,9 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
+@Slf4j
 @RestControllerAdvice
 public class GlobalRestExceptionHandler {
-    private static final Logger log = LoggerFactory.getLogger(GlobalRestExceptionHandler.class);
 
     /**
      * javax.validation.Valid or @Validated 으로 binding error 발생시 발생한다.
