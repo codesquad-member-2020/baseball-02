@@ -4,6 +4,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import kr.codesquad.baseball.business.domain.user.User;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -13,17 +14,13 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 @Slf4j
+@RequiredArgsConstructor
 @Service
 public class GitHubOAuthService {
 
     private static final String GITHUB_USER_API_URL = "https://api.github.com/user";
     private final ObjectMapper objectMapper;
     private final RestTemplate restTemplate;
-
-    public GitHubOAuthService(ObjectMapper objectMapper, RestTemplate restTemplate) {
-        this.objectMapper = objectMapper;
-        this.restTemplate = restTemplate;
-    }
 
     public GitHubToken getGitHubTokenToCode(String code) {
         HttpEntity<GitHubRequestPayload> request = new HttpEntity<>(GitHubRequestPayload.valueOf(code));

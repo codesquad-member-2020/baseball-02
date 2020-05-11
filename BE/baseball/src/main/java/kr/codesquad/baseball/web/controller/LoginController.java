@@ -3,6 +3,7 @@ package kr.codesquad.baseball.web.controller;
 import kr.codesquad.baseball.business.domain.user.User;
 import kr.codesquad.baseball.common.oauth.github.GitHubOAuthService;
 import kr.codesquad.baseball.common.util.JwtService;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -17,17 +18,13 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
 import java.net.URI;
 
-@RestController
 @Slf4j
+@RequiredArgsConstructor
+@RestController
 public class LoginController {
 
     private final GitHubOAuthService gitHubOAuthService;
     private final JwtService jwtService;
-
-    public LoginController(GitHubOAuthService gitHubOAuthService, JwtService jwtService) {
-        this.gitHubOAuthService = gitHubOAuthService;
-        this.jwtService = jwtService;
-    }
 
     // TODO: Post로 변경
     @GetMapping("/login/with-github")
