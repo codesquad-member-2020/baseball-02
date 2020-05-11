@@ -5,6 +5,7 @@ import kr.codesquad.baseball.common.oauth.github.GitHubOAuthService;
 import kr.codesquad.baseball.common.util.JwtService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -29,7 +30,7 @@ public class LoginController {
     public ResponseEntity<String> loginWithGithub(@CookieValue(value = "jwt", required = false) String jwt) {
         if (jwt != null) {
             log.debug("jwt 토큰 값: {}", jwt);
-            log.debug("jwt에 저장된 값: {}", jwtService.getDataFromJws("user", jwt));
+            log.debug("jwt에 저장된 값: {}", jwtService.getUserFromJws(jwt));
             return ResponseEntity.ok("ok");
         }
 
@@ -51,7 +52,7 @@ public class LoginController {
         User user = gitHubOAuthService.insertUserInfo(accessToken);
         log.debug("DB에 저장된 User 정보: {}", user);
 
-        String jws = jwtService.createJws("user", user);
+        String jws = jwtService.createUserJws(user);
         log.debug("jws: {}", jws);
 
         Cookie cookie = new Cookie("jwt", jws);
