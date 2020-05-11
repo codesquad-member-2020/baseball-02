@@ -4,6 +4,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import kr.codesquad.baseball.business.domain.user.User;
+import kr.codesquad.baseball.business.domain.user.UserDao;
 import kr.codesquad.baseball.common.error.exception.GitHubUserNotFoundException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -23,6 +24,7 @@ public class GitHubOAuthService {
 
     private static final String GITHUB_ACCESS_TOKEN_URL = "https://github.com/login/oauth/access_token";
     private static final String GITHUB_USER_API_URL = "https://api.github.com/user";
+    private final UserDao userDao;
     private final ObjectMapper objectMapper;
     private final RestTemplate restTemplate;
 
@@ -31,8 +33,18 @@ public class GitHubOAuthService {
         return restTemplate.postForEntity(GITHUB_ACCESS_TOKEN_URL, request, GitHubToken.class).getBody();
     }
 
-    public User insertUserInfo(String token) {
-        return User.of(getGitHubUserInfoToToken(token));
+    public Optional<User> insertUserInfo(String token) {
+        User user = User.of(getGitHubUserInfoToToken(token));
+        log.debug("DB 저장 전 User 정보: {}", user);
+
+        if (userDao.countByUserId(user) > 0 && userDao.updateUserData(user) > 0) {
+            return Optional.ofNullable(userDao.findByUserId(user));
+        }
+
+        if (userDao.insertUserData(user) > 0) {
+            return Optional.ofNullable(userDao.findByUserId(user));
+        }
+        return Optional.empty();
     }
 
     public GitHubUser getGitHubUserInfoToToken(String token) {

@@ -1,5 +1,6 @@
 package kr.codesquad.baseball.web.controller;
 
+import kr.codesquad.baseball.common.error.exception.UserNotFoundException;
 import kr.codesquad.baseball.common.oauth.github.GitHubOAuthService;
 import kr.codesquad.baseball.common.util.JwtService;
 import kr.codesquad.baseball.web.dto.view.UserView;
@@ -48,8 +49,8 @@ public class LoginController {
         String accessToken = gitHubOAuthService.getGitHubTokenToCode(code).getAccessToken();
         log.debug("AccessToken: {}", accessToken);
 
-        UserView user = UserView.of(gitHubOAuthService.insertUserInfo(accessToken));
-        log.debug("DB에 저장된 User 정보: {}", user);
+        UserView user = UserView.of(gitHubOAuthService.insertUserInfo(accessToken).orElseThrow(UserNotFoundException::new));
+        log.debug("JWT에 담길 User 정보: {}", user);
 
         String jws = jwtService.createUserJws(user);
         log.debug("jws: {}", jws);
