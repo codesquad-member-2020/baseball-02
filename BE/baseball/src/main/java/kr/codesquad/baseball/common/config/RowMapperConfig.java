@@ -15,7 +15,7 @@ public class RowMapperConfig {
                                      .id(rs.getInt("id"))
                                      .name(rs.getString("name"))
                                      .battingNumber(rs.getInt("batting_number"))
-                                     .hitRate(rs.getInt("bit_rate"))
+                                     .hitRate(rs.getInt("hit_rate"))
                                      .build();
     }
 

@@ -1,5 +1,6 @@
 package kr.codesquad.baseball.web.controller;
 
+import kr.codesquad.baseball.business.service.GameService;
 import kr.codesquad.baseball.web.dto.view.InitialGameInfoView;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -15,9 +16,16 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class GameController {
 
+    private final GameService gameService;
+
     @GetMapping("/initialInfo/{gameId}")
     public ResponseEntity<InitialGameInfoView> showInitialInfo(@PathVariable int gameId) {
-        return ResponseEntity.ok(new InitialGameInfoView());
+        log.debug("찾으려는 Game Id: {}", gameId);
+
+        InitialGameInfoView gameView = gameService.findInitialGameInfoById(gameId);
+        log.debug("Game 초기 정보: {}", gameView);
+
+        return ResponseEntity.ok(gameView);
     }
 
 }

@@ -1,11 +1,13 @@
 package kr.codesquad.baseball.web.dto.view;
 
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
 @Getter
 @Setter
+@Builder
 @ToString
 public class InitialGameInfoView {
 

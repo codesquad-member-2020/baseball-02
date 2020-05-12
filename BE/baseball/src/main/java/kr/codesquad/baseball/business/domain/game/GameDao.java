@@ -7,7 +7,8 @@ import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.stereotype.Repository;
 
 import javax.sql.DataSource;
-import java.time.ZoneId;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 @Slf4j
 @Repository
@@ -23,10 +24,11 @@ public class GameDao {
 
     public Game findById(int id) {
         SqlParameterSource parameters = new MapSqlParameterSource("id", id);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         return jdbcTemplate.queryForObject(SELECT_GAME_BY_ID, parameters, (rs, rowNum) ->
                 Game.builder()
                     .id(rs.getInt("id"))
-                    .playDate(rs.getDate("play_date").toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime())
+                    .playDate(LocalDateTime.parse(rs.getString("play_date"), formatter))
                     .home(rs.getInt("home"))
                     .away(rs.getInt("away"))
                     .build());
