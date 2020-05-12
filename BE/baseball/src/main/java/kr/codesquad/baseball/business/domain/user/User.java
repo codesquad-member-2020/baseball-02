@@ -12,6 +12,7 @@ import lombok.ToString;
 @RequiredArgsConstructor
 public class User {
 
+    private final Integer id;
     private final String userId;
     private final String nickname;
     private final String email;
