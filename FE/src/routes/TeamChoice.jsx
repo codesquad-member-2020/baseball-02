@@ -17,8 +17,8 @@ const TeamChoice = () => {
 		<Wrapper>
 			<Title>플레이할 팀을 선택하세요.</Title>
 			<TeamContainer>
-				{TEAMS.map((team) => (
-					<Team key={team}>{team}</Team>
+				{TEAMS.map(({ id, name }) => (
+					<Team key={id}>{name}</Team>
 				))}
 			</TeamContainer>
 			<PlayButton onClick={redirectToGamePage}>PLAY</PlayButton>
