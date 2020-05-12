@@ -37,11 +37,11 @@ public class GitHubOAuthService {
         User user = User.of(getGitHubUserInfoToToken(token));
         log.debug("DB 저장 전 User 정보: {}", user);
 
-        if (userDao.countByUserId(user) > 0 && userDao.updateUserData(user) > 0) {
+        if (userDao.countByUserId(user) != 0 && userDao.updateUserData(user) != 0) {
             return userDao.findByUserId(user);
         }
 
-        if (userDao.insertUserData(user) > 0) {
+        if (userDao.insertUserData(user) != 0) {
             return userDao.findByUserId(user);
         }
         return Optional.empty();

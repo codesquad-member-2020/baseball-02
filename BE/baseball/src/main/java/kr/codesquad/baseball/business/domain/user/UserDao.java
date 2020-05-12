@@ -44,7 +44,8 @@ public class UserDao {
                     .nickname(rs.getString("nickname"))
                     .email(rs.getString("email"))
                     .githubToken(rs.getString("github_token"))
-                    .build()).stream().findFirst();
+                    .build()
+               ).stream().findFirst();
     }
 
     public Integer countByUserId(User user) {
