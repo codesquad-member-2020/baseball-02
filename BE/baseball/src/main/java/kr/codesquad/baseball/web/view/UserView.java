@@ -1,4 +1,4 @@
-package kr.codesquad.baseball.web.dto.view;
+package kr.codesquad.baseball.web.view;
 
 import kr.codesquad.baseball.business.domain.user.User;
 import lombok.*;

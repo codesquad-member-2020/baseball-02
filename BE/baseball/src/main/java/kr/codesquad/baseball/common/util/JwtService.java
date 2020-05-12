@@ -3,7 +3,7 @@ package kr.codesquad.baseball.common.util;
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.security.Keys;
 import kr.codesquad.baseball.common.error.exception.LoginRequiredException;
-import kr.codesquad.baseball.web.dto.view.UserView;
+import kr.codesquad.baseball.web.view.UserView;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
