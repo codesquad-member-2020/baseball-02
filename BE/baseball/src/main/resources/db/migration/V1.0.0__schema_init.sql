@@ -30,6 +30,7 @@ ENGINE = InnoDB;
 CREATE TABLE  baseball.pitcher (
       id INT NOT NULL AUTO_INCREMENT,
       name VARCHAR(45) NOT NULL,
+      back_number INT NOT NULL,
       team_id INT NOT NULL,
       PRIMARY KEY (id),
       INDEX fk_pitcher_team1_idx (team_id ASC),
@@ -44,6 +45,7 @@ ENGINE = InnoDB;
 CREATE TABLE  baseball.batter (
       id INT NOT NULL AUTO_INCREMENT,
       name VARCHAR(45) NOT NULL,
+      back_number INT NOT NULL,
       batting_number INT NOT NULL,
       hit_rate INT NOT NULL,
       team_id INT NOT NULL,
