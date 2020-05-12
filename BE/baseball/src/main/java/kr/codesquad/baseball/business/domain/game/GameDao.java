@@ -8,8 +8,9 @@ import org.springframework.stereotype.Repository;
 
 import javax.sql.DataSource;
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.Optional;
+
+import static kr.codesquad.baseball.common.constants.CommonConstants.DATE_TIME_FORMATTER;
 
 @Slf4j
 @Repository
@@ -25,11 +26,10 @@ public class GameDao {
 
     public Optional<Game> findById(int id) {
         SqlParameterSource parameters = new MapSqlParameterSource("id", id);
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         return jdbcTemplate.query(SELECT_GAME_BY_ID, parameters, (rs, rowNum) ->
                 Game.builder()
                     .id(rs.getInt("id"))
-                    .playDate(LocalDateTime.parse(rs.getString("play_date"), formatter))
+                    .playDate(LocalDateTime.parse(rs.getString("play_date"), DATE_TIME_FORMATTER))
                     .home(rs.getInt("home"))
                     .away(rs.getInt("away"))
                     .build())
