@@ -100,3 +100,13 @@ VALUES
     (34, 'Brian', 47, 7, 333, 4),
     (35, '자바지기', 48, 8, 333, 4),
     (36, '붱이', 49, 9, 333, 4);
+
+INSERT INTO baseball.game
+    (play_date, home, away)
+VALUES
+    (NOW(), 1, 2);
+
+INSERT INTO baseball.inning
+    (inning_number, is_first, strike_count, ball_count, out_count, score, game_id)
+VALUES
+    (1, 1, 0, 0, 0, 0, 1);
