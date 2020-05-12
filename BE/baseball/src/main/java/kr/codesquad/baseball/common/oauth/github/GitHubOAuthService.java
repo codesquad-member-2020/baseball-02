@@ -51,9 +51,9 @@ public class GitHubOAuthService {
         HttpHeaders requestHeaders = new HttpHeaders();
         requestHeaders.set("Authorization", "token " + token);
 
-        GitHubUser user = Optional.ofNullable(
-                restTemplate.exchange(GITHUB_USER_API_URL, HttpMethod.GET, new HttpEntity<>(requestHeaders), GitHubUser.class).getBody())
-                                  .orElseThrow(GitHubUserNotFoundException::new);
+        GitHubUser user = Optional
+                .ofNullable(restTemplate.exchange(GITHUB_USER_API_URL, HttpMethod.GET, new HttpEntity<>(requestHeaders), GitHubUser.class).getBody())
+                .orElseThrow(GitHubUserNotFoundException::new);
         user.setToken(token);
 
         // 공개된 user email이 없는 경우가 있어서 없는 경우 email API를 사용해서 채워줍니다.
