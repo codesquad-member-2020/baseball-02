@@ -10,9 +10,13 @@ public class InitialBatterView {
 
     private int id;
     private String name;
+    private int atBat;
+    private int hit;
 
     public InitialBatterView(BatterDto batterDto) {
         this.id = batterDto.getId();
         this.name = batterDto.getName();
+        this.atBat = 0;
+        this.hit = 0;
     }
 }
