@@ -1,6 +1,7 @@
 package kr.codesquad.baseball.web.dto;
 
 import kr.codesquad.baseball.business.domain.inning.Inning;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.ToString;
@@ -8,6 +9,7 @@ import lombok.ToString;
 @Getter
 @Builder
 @ToString
+@AllArgsConstructor
 public class InningDto {
 
     private Integer id;
