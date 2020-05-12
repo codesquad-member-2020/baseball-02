@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { PATH, GAME_START } from "Utils/const";
 import BallCount from "./BallCount.jsx";
+import Player from "./Player.jsx";
 import { Container, InningInfo, PitchBtn, RecordBtn } from "Styles/Stadium";
 
 const Stadium = () => {
@@ -35,6 +36,7 @@ const Stadium = () => {
 				GAME_START.inningInfo.half === "first" ? "초" : "말"
 			} ${GAME_START.inningInfo.attackOrDefense === "attack" ? "공격" : "수비"}`}</InningInfo>
 			<PitchBtn>PITCH</PitchBtn>
+			<Player />
 			<RecordBtn>
 				<Link to={PATH.PLAYER_RECORD}>Player Record ></Link>
 			</RecordBtn>
