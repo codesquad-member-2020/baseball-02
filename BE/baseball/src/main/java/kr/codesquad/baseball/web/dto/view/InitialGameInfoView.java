@@ -7,7 +7,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class InitialInfoView {
+public class InitialGameInfoView {
 
     private int gameId;
     private InitialTeamView homeTeam;

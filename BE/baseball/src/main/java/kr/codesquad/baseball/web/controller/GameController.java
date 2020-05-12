@@ -1,6 +1,6 @@
 package kr.codesquad.baseball.web.controller;
 
-import kr.codesquad.baseball.web.dto.view.InitialInfoView;
+import kr.codesquad.baseball.web.dto.view.InitialGameInfoView;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
@@ -16,8 +16,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class GameController {
 
     @GetMapping("/initialInfo/{gameId}")
-    public ResponseEntity<InitialInfoView> showInitialInfo(@PathVariable int gameId) {
-        return ResponseEntity.ok(new InitialInfoView());
+    public ResponseEntity<InitialGameInfoView> showInitialInfo(@PathVariable int gameId) {
+        return ResponseEntity.ok(new InitialGameInfoView());
     }
 
 }
