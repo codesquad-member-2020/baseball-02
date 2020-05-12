@@ -34,7 +34,7 @@ public class GitHubOAuthService {
     }
 
     public Optional<User> insertUserInfo(String token) {
-        User user = User.of(getGitHubUserInfoToToken(token));
+        User user = getUserInfoToToken(token);
         log.debug("DB 저장 전 User 정보: {}", user);
 
         if (userDao.countByUserId(user) != 0 && userDao.updateUserData(user) != 0) {
@@ -47,7 +47,7 @@ public class GitHubOAuthService {
         return Optional.empty();
     }
 
-    public GitHubUser getGitHubUserInfoToToken(String token) {
+    public User getUserInfoToToken(String token) {
         HttpHeaders requestHeaders = new HttpHeaders();
         requestHeaders.set("Authorization", "token " + token);
 
@@ -61,7 +61,7 @@ public class GitHubOAuthService {
             user.setEmail(getEmailFromGitHub(requestHeaders));
         }
 
-        return user;
+        return User.of(user);
     }
 
     @Nullable
