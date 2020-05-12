@@ -15,6 +15,10 @@ import java.util.Map;
 @Repository
 public class UserDao {
 
+    private static final String UPDATE_USER = "\nUPDATE user\n SET nickname = :nickname,\n email = :email,\n github_token = :github_token\n WHERE user_id = :user_id;";
+    private static final String SELECT_USER_BY_USER_ID = "\nSELECT u.user_id, u.nickname, u.email, u.github_token\n  FROM user u\n WHERE u.user_id = :user_id;";
+    private static final String COUNT_USER_BY_USER_ID = "\nSELECT COUNT(*)\n  FROM user u\n WHERE u.user_id = :user_id;";
+
     private final NamedParameterJdbcTemplate jdbcTemplate;
     private final SimpleJdbcInsert jdbcInsert;
 
@@ -28,14 +32,12 @@ public class UserDao {
     }
 
     public int updateUserData(User user) {
-        String updateQuery = "\nUPDATE user\n SET nickname = :nickname,\n email = :email,\n github_token = :github_token\n WHERE user_id = :user_id;";
-        return jdbcTemplate.update(updateQuery, getParamMap(user));
+        return jdbcTemplate.update(UPDATE_USER, getParamMap(user));
     }
 
     public User findByUserId(User user) {
-        String findQuery = "\nSELECT u.user_id, u.nickname, u.email, u.github_token\n  FROM user u\n WHERE u.user_id = :user_id;";
         SqlParameterSource parameters = new MapSqlParameterSource("user_id", user.getUserId());
-        return jdbcTemplate.queryForObject(findQuery, parameters, (rs, rowNum) ->
+        return jdbcTemplate.queryForObject(SELECT_USER_BY_USER_ID, parameters, (rs, rowNum) ->
                 User.builder()
                     .userId(rs.getString("user_id"))
                     .nickname(rs.getString("nickname"))
@@ -45,9 +47,8 @@ public class UserDao {
     }
 
     public Integer countByUserId(User user) {
-        String findQuery = "\nSELECT COUNT(*)\n  FROM user u\n WHERE u.user_id = :user_id;";
         SqlParameterSource parameters = new MapSqlParameterSource("user_id", user.getUserId());
-        return jdbcTemplate.queryForObject(findQuery, parameters, Integer.class);
+        return jdbcTemplate.queryForObject(COUNT_USER_BY_USER_ID, parameters, Integer.class);
     }
 
     private Map<String, Object> getParamMap(User user) {
