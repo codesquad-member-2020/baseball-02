@@ -1,16 +1,8 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { PATH, GAME_START } from "Utils/const";
-import {
-	Container,
-	BallCountWrapper,
-	BallCount,
-	LightContainer,
-	Light,
-	InningInfo,
-	PitchBtn,
-	RecordBtn,
-} from "Styles/Stadium";
+import BallCount from "./BallCount.jsx";
+import { Container, InningInfo, PitchBtn, RecordBtn } from "Styles/Stadium";
 
 const Stadium = () => {
 	useEffect(() => {
@@ -35,35 +27,10 @@ const Stadium = () => {
 		ctx.fillRect(10, -45, 30, 30);
 	};
 
-	const updateBallCount = (num) => {
-		return (
-			<LightContainer>
-				{Array(num)
-					.fill(1)
-					.map((el, i) => (
-						<Light key={el + i}></Light>
-					))}
-			</LightContainer>
-		);
-	};
-
 	return (
 		<Container>
 			<canvas id="ground" width="545" height="445"></canvas>
-			<BallCountWrapper>
-				<BallCount>
-					<span>S</span>
-					{updateBallCount(GAME_START.ballCount.strike)}
-				</BallCount>
-				<BallCount>
-					<span>B</span>
-					{updateBallCount(GAME_START.ballCount.ball)}
-				</BallCount>
-				<BallCount>
-					<span>O</span>
-					{updateBallCount(GAME_START.ballCount.out)}
-				</BallCount>
-			</BallCountWrapper>
+			<BallCount ballCount={GAME_START.ballCount} />
 			<InningInfo>{`${GAME_START.inningInfo.inning}회${
 				GAME_START.inningInfo.half === "first" ? "초" : "말"
 			} ${GAME_START.inningInfo.attackOrDefense === "attack" ? "공격" : "수비"}`}</InningInfo>
