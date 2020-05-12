@@ -38,11 +38,11 @@ public class GitHubOAuthService {
         log.debug("DB 저장 전 User 정보: {}", user);
 
         if (userDao.countByUserId(user) > 0 && userDao.updateUserData(user) > 0) {
-            return Optional.ofNullable(userDao.findByUserId(user));
+            return userDao.findByUserId(user);
         }
 
         if (userDao.insertUserData(user) > 0) {
-            return Optional.ofNullable(userDao.findByUserId(user));
+            return userDao.findByUserId(user);
         }
         return Optional.empty();
     }

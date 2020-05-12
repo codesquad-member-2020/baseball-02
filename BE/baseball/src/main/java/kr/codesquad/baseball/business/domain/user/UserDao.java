@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 import javax.sql.DataSource;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 
 @Slf4j
 @Repository
@@ -35,15 +36,15 @@ public class UserDao {
         return jdbcTemplate.update(UPDATE_USER, getParamMap(user));
     }
 
-    public User findByUserId(User user) {
+    public Optional<User> findByUserId(User user) {
         SqlParameterSource parameters = new MapSqlParameterSource("user_id", user.getUserId());
-        return jdbcTemplate.queryForObject(SELECT_USER_BY_USER_ID, parameters, (rs, rowNum) ->
+        return jdbcTemplate.query(SELECT_USER_BY_USER_ID, parameters, (rs, rowNum) ->
                 User.builder()
                     .userId(rs.getString("user_id"))
                     .nickname(rs.getString("nickname"))
                     .email(rs.getString("email"))
                     .githubToken(rs.getString("github_token"))
-                    .build());
+                    .build()).stream().findFirst();
     }
 
     public Integer countByUserId(User user) {
