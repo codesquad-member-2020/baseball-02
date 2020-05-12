@@ -14,6 +14,7 @@ public class RowMapperConfig {
         return (rs, rowNum) -> Batter.builder()
                                      .id(rs.getInt("id"))
                                      .name(rs.getString("name"))
+                                     .backNumber(rs.getInt("back_number"))
                                      .battingNumber(rs.getInt("batting_number"))
                                      .hitRate(rs.getInt("hit_rate"))
                                      .build();
@@ -24,6 +25,7 @@ public class RowMapperConfig {
         return (rs, rowNum) -> Pitcher.builder()
                                       .id(rs.getInt("id"))
                                       .name(rs.getString("name"))
+                                      .backNumber(rs.getInt("back_number"))
                                       .build();
     }
 }

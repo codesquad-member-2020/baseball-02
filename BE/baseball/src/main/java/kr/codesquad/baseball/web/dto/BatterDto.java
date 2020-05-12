@@ -10,12 +10,14 @@ public class BatterDto {
 
     private int id;
     private String name;
+    private int backNumber;
     private int battingNumber;
     private int hitRate;
 
     public BatterDto(Batter batter) {
         this.id = batter.getId();
         this.name = batter.getName();
+        this.backNumber = batter.getBackNumber();
         this.battingNumber = batter.getBattingNumber();
         this.hitRate = batter.getHitRate();
     }

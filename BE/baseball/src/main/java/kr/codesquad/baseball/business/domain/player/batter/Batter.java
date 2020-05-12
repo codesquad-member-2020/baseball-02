@@ -11,6 +11,7 @@ public class Batter {
 
     private final int id;
     private final String name;
+    private final int backNumber;
     private final int battingNumber;
     private final int hitRate;
 }

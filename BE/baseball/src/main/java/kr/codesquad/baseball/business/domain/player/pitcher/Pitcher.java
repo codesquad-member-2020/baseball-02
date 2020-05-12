@@ -11,4 +11,5 @@ public class Pitcher {
 
     private final int id;
     private final String name;
+    private final int backNumber;
 }

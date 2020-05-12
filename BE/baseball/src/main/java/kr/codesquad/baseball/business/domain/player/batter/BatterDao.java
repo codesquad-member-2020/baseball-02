@@ -14,8 +14,8 @@ import java.util.List;
 @Repository
 public class BatterDao {
 
-    private static final String SELECT_BATTER_BY_ID = "\nSELECT b.id, b.name, b.batting_number, b.hit_rate\n  FROM batter b\n WHERE b.id = :id";
-    private static final String SELECT_BATTERS_BY_TEAM_ID = "\nSELECT b.id, b.name, b.batting_number, b.hit_rate\n  FROM batter b\n WHERE b.team_id = :team_id\n ORDER BY b.batting_number";
+    private static final String SELECT_BATTER_BY_ID = "\nSELECT b.id, b.name, b.back_number, b.batting_number, b.hit_rate\n  FROM batter b\n WHERE b.id = :id";
+    private static final String SELECT_BATTERS_BY_TEAM_ID = "\nSELECT b.id, b.name, b.back_number, b.batting_number, b.hit_rate\n  FROM batter b\n WHERE b.team_id = :team_id\n ORDER BY b.batting_number";
 
     private final NamedParameterJdbcTemplate jdbcTemplate;
     private final RowMapper<Batter> batterMapper;

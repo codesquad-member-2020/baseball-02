@@ -13,8 +13,8 @@ import javax.sql.DataSource;
 @Repository
 public class PitcherDao {
 
-    private static final String SELECT_PITCHER_BY_ID = "\nSELECT p.id, p.name\n  FROM pitcher p\n WHERE id = :id";
-    private static final String SELECT_PITCHER_BY_TEAM_ID = "\nSELECT p.id, p.name\n  FROM pitcher p\n WHERE team_id = :team_id";
+    private static final String SELECT_PITCHER_BY_ID = "\nSELECT p.id, p.name, p.back_number\n  FROM pitcher p\n WHERE id = :id";
+    private static final String SELECT_PITCHER_BY_TEAM_ID = "\nSELECT p.id, p.name, p.back_number\n  FROM pitcher p\n WHERE team_id = :team_id";
 
     private final NamedParameterJdbcTemplate jdbcTemplate;
     private final RowMapper<Pitcher> pitcherMapper;
