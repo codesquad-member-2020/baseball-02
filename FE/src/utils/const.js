@@ -51,3 +51,126 @@ export const GAME_START = {
 		batter: { name: "류현진", number: 7, atBat: 1, hit: 0 },
 	},
 };
+
+export const PLAYER_RECORD = {
+	teams: {
+		home: {
+			name: "Captain",
+			players: [
+				{
+					name: "김광진",
+					atBat: 1,
+					hit: 0,
+					out: 2,
+				},
+				{
+					name: "류현진",
+					atBat: 1,
+					hit: 2,
+					out: 0,
+				},
+				{
+					name: "추진수",
+					atBat: 2,
+					hit: 1,
+					out: 1,
+				},
+				{
+					name: "한양범",
+					atBat: 4,
+					hit: 0,
+					out: 1,
+				},
+				{
+					name: "김진수",
+					atBat: 1,
+					hit: 1,
+					out: 0,
+				},
+				{
+					name: "최동원",
+					atBat: 1,
+					hit: 0,
+					out: 0,
+				},
+				{
+					name: "이동규",
+					atBat: 1,
+					hit: 1,
+					out: 0,
+				},
+				{
+					name: "이용대",
+					atBat: 1,
+					hit: 1,
+					out: 1,
+				},
+				{
+					name: "박영권",
+					atBat: 1,
+					hit: 0,
+					out: 1,
+				},
+			],
+		},
+		away: {
+			name: "Marvels",
+			players: [
+				{
+					name: "김광진",
+					atBat: 1,
+					hit: 0,
+					out: 1,
+				},
+				{
+					name: "류현진",
+					atBat: 1,
+					hit: 2,
+					out: 0,
+				},
+				{
+					name: "추진수",
+					atBat: 2,
+					hit: 1,
+					out: 1,
+				},
+				{
+					name: "한양범",
+					atBat: 4,
+					hit: 0,
+					out: 1,
+				},
+				{
+					name: "김진수",
+					atBat: 1,
+					hit: 1,
+					out: 0,
+				},
+				{
+					name: "최동원",
+					atBat: 1,
+					hit: 0,
+					out: 0,
+				},
+				{
+					name: "이동규",
+					atBat: 1,
+					hit: 1,
+					out: 0,
+				},
+				{
+					name: "이용대",
+					atBat: 1,
+					hit: 1,
+					out: 1,
+				},
+				{
+					name: "박영권",
+					atBat: 1,
+					hit: 0,
+					out: 1,
+				},
+			],
+		},
+	},
+};
