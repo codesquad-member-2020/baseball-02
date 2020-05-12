@@ -18,7 +18,7 @@ public class GameController {
 
     private final GameService gameService;
 
-    @GetMapping("/initialInfo/{gameId}")
+    @GetMapping("/{gameId}/initialInfo")
     public ResponseEntity<InitialGameInfoView> showInitialInfo(@PathVariable int gameId) {
         log.debug("찾으려는 Game Id: {}", gameId);
 
@@ -27,5 +27,4 @@ public class GameController {
 
         return ResponseEntity.ok(gameView);
     }
-
 }
