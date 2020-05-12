@@ -82,7 +82,7 @@ ENGINE = InnoDB;
 
 
 CREATE TABLE  baseball.inning (
-      id INT NOT NULL,
+      id INT NOT NULL AUTO_INCREMENT,
       inning_number INT NOT NULL,
       is_first TINYINT NOT NULL,
       strike_count INT NOT NULL,
