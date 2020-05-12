@@ -1,7 +1,7 @@
 package kr.codesquad.baseball.web.controller;
 
 import kr.codesquad.baseball.business.service.GameService;
-import kr.codesquad.baseball.web.dto.view.InitialGameInfoView;
+import kr.codesquad.baseball.web.view.InitialGameInfoView;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;

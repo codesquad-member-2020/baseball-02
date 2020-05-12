@@ -2,8 +2,8 @@ package kr.codesquad.baseball.business.service;
 
 import kr.codesquad.baseball.business.domain.game.Game;
 import kr.codesquad.baseball.business.domain.game.GameDao;
-import kr.codesquad.baseball.web.dto.view.InitialGameInfoView;
-import kr.codesquad.baseball.web.dto.view.InitialTeamView;
+import kr.codesquad.baseball.web.view.InitialGameInfoView;
+import kr.codesquad.baseball.web.view.InitialTeamView;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

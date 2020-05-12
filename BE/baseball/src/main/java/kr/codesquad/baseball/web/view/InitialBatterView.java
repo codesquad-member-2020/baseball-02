@@ -1,4 +1,4 @@
-package kr.codesquad.baseball.web.dto.view;
+package kr.codesquad.baseball.web.view;
 
 import kr.codesquad.baseball.web.dto.BatterDto;
 import lombok.Getter;
