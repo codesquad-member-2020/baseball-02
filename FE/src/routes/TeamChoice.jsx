@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Redirect } from "react-router-dom";
-import { PATH } from "Utils/const";
+import { PATH, TEAMS } from "Utils/const";
+import { Wrapper, Title, TeamContainer, Team, PlayButton } from "Styles/TeamChoice";
 
 const TeamChoice = () => {
 	const [redirect, setRedirect] = useState(false);
@@ -13,10 +14,15 @@ const TeamChoice = () => {
 	return redirect ? (
 		<Redirect to={PATH.MATCH} />
 	) : (
-		<>
-			<h1>TeamChoice</h1>
-			<button onClick={redirectToGamePage}>PLAY</button>
-		</>
+		<Wrapper>
+			<Title>플레이할 팀을 선택하세요.</Title>
+			<TeamContainer>
+				{TEAMS.map(({ id, name }) => (
+					<Team key={id}>{name}</Team>
+				))}
+			</TeamContainer>
+			<PlayButton onClick={redirectToGamePage}>PLAY</PlayButton>
+		</Wrapper>
 	);
 };
 

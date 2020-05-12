@@ -25,6 +25,12 @@ module.exports = {
 					},
 				],
 			},
+			{
+				test: /\.(jpg|png)$/,
+				use: {
+					loader: "url-loader",
+				},
+			},
 		],
 	},
 	plugins: [
@@ -35,5 +41,6 @@ module.exports = {
 	],
 	devServer: {
 		historyApiFallback: true,
+		port: 5000,
 	},
 };
