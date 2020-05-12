@@ -9,11 +9,11 @@ import lombok.ToString;
 @ToString
 public class Inning {
 
-    private Integer id;
-    private Integer inningNumber;
-    private Boolean isFirst;
-    private Integer strikeCount;
-    private Integer ballCount;
-    private Integer outCount;
-    private Integer score;
+    private final Integer id;
+    private final Integer inningNumber;
+    private final Boolean isFirst;
+    private final Integer strikeCount;
+    private final Integer ballCount;
+    private final Integer outCount;
+    private final Integer score;
 }
