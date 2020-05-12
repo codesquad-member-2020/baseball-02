@@ -110,3 +110,18 @@ INSERT INTO baseball.inning
     (inning_number, is_first, strike_count, ball_count, out_count, score, game_id)
 VALUES
     (1, 1, 0, 0, 0, 0, 1);
+
+INSERT INTO baseball.inning
+    (inning_number, is_first, strike_count, ball_count, out_count, score, game_id)
+VALUES
+    (1, 0, 0, 0, 0, 0, 1);
+
+INSERT INTO baseball.inning
+    (inning_number, is_first, strike_count, ball_count, out_count, score, game_id)
+VALUES
+    (2, 1, 0, 0, 0, 0, 1);
+
+INSERT INTO baseball.inning
+    (inning_number, is_first, strike_count, ball_count, out_count, score, game_id)
+VALUES
+    (2, 0, 0, 0, 0, 0, 1);
