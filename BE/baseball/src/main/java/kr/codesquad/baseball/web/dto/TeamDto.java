@@ -16,6 +16,7 @@ public class TeamDto {
 
     private Integer id;
     private String name;
+    private BatterDto lastBatter;
     private PitcherDto pitcher;
     private List<BatterDto> batters = new ArrayList<>();
 

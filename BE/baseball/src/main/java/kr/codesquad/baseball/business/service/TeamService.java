@@ -1,5 +1,6 @@
 package kr.codesquad.baseball.business.service;
 
+import kr.codesquad.baseball.business.domain.Team;
 import kr.codesquad.baseball.business.domain.TeamDao;
 import kr.codesquad.baseball.business.domain.player.batter.BatterDao;
 import kr.codesquad.baseball.business.domain.player.pitcher.PitcherDao;
@@ -28,9 +29,11 @@ public class TeamService {
     }
 
     public TeamDto findByTeamId(int id) {
-        TeamDto teamDto = TeamDto.of(teamDao.findById(id));
+        Team team = teamDao.findById(id);
+        TeamDto teamDto = TeamDto.of(team);
         teamDto.setPitcher(PitcherDto.of(pitcherDao.findByTeamId(id)));
         teamDto.setBatters(batterDao.findByTeamId(id).stream().map(BatterDto::new).collect(Collectors.toList()));
+        teamDto.setLastBatter(new BatterDto(batterDao.findByBatterId(team.getLastBatter())));
         return teamDto;
     }
 }

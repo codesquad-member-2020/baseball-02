@@ -12,7 +12,7 @@ import java.util.List;
 @Component
 public class TeamDao {
 
-    private static final String SELECT_TEAM_BY_ID = "\nSELECT t.id, t.name\n  FROM team t\n WHERE id = :id";
+    private static final String SELECT_TEAM_BY_ID = "\nSELECT t.id, t.name, t.last_batter\n  FROM team t\n WHERE id = :id";
 
     private final NamedParameterJdbcTemplate jdbcTemplate;
     private final String SELECT_ALL = "SELECT id, name, last_batter FROM team";
@@ -33,6 +33,7 @@ public class TeamDao {
                 Team.builder()
                     .id(rs.getInt("id"))
                     .name(rs.getString("name"))
+                    .lastBatter(rs.getInt("last_batter"))
                     .build());
     }
 }

@@ -1,5 +1,6 @@
 package kr.codesquad.baseball.common.constants;
 
+import com.fasterxml.jackson.annotation.JsonValue;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -12,5 +13,6 @@ public enum PitchResult {
     OUT("out"),
     HIT("hit");
 
+    @JsonValue
     private String action;
 }
