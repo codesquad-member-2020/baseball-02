@@ -114,3 +114,8 @@ gradle-app.setting
 **/build/
 
 # End of https://www.gitignore.io/api/gradle,java-web,intellij
+
+.idea
+
+flyway.conf
+application-db.properties
