@@ -3,7 +3,7 @@ package kr.codesquad.baseball.web.controller;
 import kr.codesquad.baseball.common.error.exception.UserNotFoundException;
 import kr.codesquad.baseball.common.oauth.github.GitHubOAuthService;
 import kr.codesquad.baseball.common.util.JwtService;
-import kr.codesquad.baseball.web.dto.view.UserView;
+import kr.codesquad.baseball.web.view.UserView;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpHeaders;
