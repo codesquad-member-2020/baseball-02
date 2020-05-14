@@ -22,7 +22,7 @@ class TeamDAOTest {
         // given
 
         // when
-        List<Team> teams = teamDAO.findAll();
+        List<Team> teams = teamDAO.selectAll();
         // then
         assertThat(teams.size()).isGreaterThan(3);
         assertThat(teams.get(0).getId()).isNotNull();

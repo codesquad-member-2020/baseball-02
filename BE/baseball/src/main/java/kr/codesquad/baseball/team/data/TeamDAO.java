@@ -19,7 +19,7 @@ public class TeamDAO {
         this.jdbcTemplate = new NamedParameterJdbcTemplate(dataSource);
     }
 
-    public List<Team> findAll() {
+    public List<Team> selectAll() {
         return jdbcTemplate.query(SELECT_TEAM_ALL, (rs, rowNum) ->
                 new Team(rs.getInt("id"), rs.getString("name")));
     }
